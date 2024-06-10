@@ -4,7 +4,7 @@ import Link from 'next/link';
 function HomePage() {
   return (
     <div>
-      <h1 className="" className="text-7xl">Home Page</h1>
+      <h1 className="text-7xl">Home Page</h1>
       <Link href="/about">About Page</Link>
     </div>
   )
