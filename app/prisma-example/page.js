@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Prisma-Example() {
+function PrismaExample() {
   return (
     <div>
-      Prisma <Example></Example>
+      Prisma-Example
     </div>
   )
 }
 
-export default Prisma-Example
+export default PrismaExample
