@@ -15,7 +15,7 @@ if(!response.ok) {
 
 async function DrinksPage () {
     const data = await fetchDrinks();
-    console.log(data)  
+    //console.log(data)  
 
   return (
     <div>
