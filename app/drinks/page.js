@@ -24,4 +24,4 @@ async function DrinksPage () {
   )
 }
 
-export default DrinksPage 
+export default DrinksPage;

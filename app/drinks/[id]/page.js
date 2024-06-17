@@ -25,7 +25,7 @@ const SingleDrinkPage = async ({ params }) => {
       {/* <img src={imgSrc} className="w-48 h-48 rounded"></img>*/}
       <Image src={imgSrc} width={300} height={300} 
       className="w-48 h-48 rounded-lg shadow-lg" priority alt={title}></Image>
-      <h1 className="text-2xl mb-8">{title}</h1>
+      <h1 className="text-2xl mt-6">{title}</h1>
     </div>
   );
 };
