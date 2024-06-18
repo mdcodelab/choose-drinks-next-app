@@ -1,6 +1,6 @@
 import prisma from "../../utils/db";
 
-const prismaHandlers = async () => {
+export const prismaHandlers = async () => {
   // delete all existing tasks
   await prisma.task.deleteMany({});
 
@@ -18,28 +18,28 @@ const prismaHandlers = async () => {
     },
   });
   // By ID
-  const task = await prisma.task.findUnique({
-    where: {
-      id: id,
-    },
-  });
+  // const task = await prisma.task.findUnique({
+  //   where: {
+  //     id: id,
+  //   },
+  // });
 
 ///update a task
-  const updateTask = await prisma.task.update({
-    where: {
-      id: id,
-    },
-    data: {
-      content: "updated task",
-    },
-  });
+  // const updateTask = await prisma.task.update({
+  //   where: {
+  //     id: id,
+  //   },
+  //   data: {
+  //     content: "updated task",
+  //   },
+  // });
 
   //delete a single record
-const deleteTask = await prisma.task.delete({
-  where: {
-    id: id,
-  },
-});
+// const deleteTask = await prisma.task.delete({
+//   where: {
+//     id: id,
+//   },
+// });
 
   return allTasks;
 };
@@ -49,7 +49,7 @@ const deleteTask = await prisma.task.delete({
 async function PrismaExample() {
   const allTasks = await prismaHandlers();
   return (
-    <div>
+    <div className="max-w-lg m-auto">
       <h1>Prisma Example</h1>
       {allTasks.map((task) => (
         <h2 key={task.id} className="text-xl py-2">
