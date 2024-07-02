@@ -1,11 +1,12 @@
+import { deleteTask } from "@/utils/actions";
 
-
-function DeleteForm() {
+function DeleteForm({id}) {
   return (
-    <div>
-      <button type="button" className="btn btn-accent">Delete Task</button>
-    </div>
-  )
+    <form action={deleteTask}>
+      <input type="hidden" name="id" value={id} />
+      <button className="btn btn-error btn-xs">delete</button>
+    </form>
+  );
 }
 
 export default DeleteForm

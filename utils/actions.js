@@ -1,4 +1,5 @@
-"use server"
+"use server";
+
 import prisma from "./db";
 import { revalidatePath } from "next/cache";
 
@@ -19,6 +20,15 @@ const task = await prisma.task.create({
     }
 })
 revalidatePath("/tasks");
-console.log(task);
+}
+
+export const deleteTask = async (formData) => {
+    const id = await formData.get("id");
+    await prisma.task.delete({
+        where: {
+            id: id
+        }
+    })
+    revalidatePath("/tasks");
 }
 

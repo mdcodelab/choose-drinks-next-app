@@ -14,12 +14,15 @@ async function TaskList() {
   return (
     <div>
       {tasks.map((task) => (
-        <li key={task.id} className="flex justify-between items-center my-4 shadow-lg border-base-300">
+        <li
+          key={task.id}
+          className="flex justify-between items-center my-4 shadow-lg border-base-300"
+        >
           <h2 className={`${task.completed} ? "line-through : null`}>
             {task.content}
           </h2>
           <div>
-            <Link href={`tasks/${task.id}`} className="btn btn-accent">
+            <Link href={`tasks/${task.id}`} className="btn btn-accent btn-xs">
               Edit
             </Link>
           </div>
