@@ -49,3 +49,14 @@ revalidatePath("/tasks");
 redirect("/tasks");
 }
 
+
+export const createTaskCustom = async (formData) => {
+  const content = await formData.get("content");
+  const task = await prisma.task.create({
+    data: {
+      content,
+    },
+  });
+  revalidatePath("/tasks");
+};
+
