@@ -50,13 +50,22 @@ redirect("/tasks");
 }
 
 
-export const createTaskCustom = async (formData) => {
-  const content = await formData.get("content");
-  const task = await prisma.task.create({
-    data: {
-      content,
-    },
-  });
-  revalidatePath("/tasks");
+export const createTaskCustom = async (prevState, formData) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const content = formData.get("content");
+  // some validation here
+  try {
+    await prisma.task.create({
+      data: {
+        content,
+      },
+    });
+    // revalidate path
+    revalidatePath("/tasks");
+    return { message: "success!!!" };
+  } catch (error) {
+    // can't return error
+    return { message: "error..." };
+  }
 };
 
