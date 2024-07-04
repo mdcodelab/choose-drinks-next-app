@@ -24,14 +24,23 @@ const task = await prisma.task.create({
 revalidatePath("/tasks");
 }
 
-export const deleteTask = async (formData) => {
-    const id = await formData.get("id");
-    await prisma.task.delete({
-        where: {
-            id: id
-        }
-    })
-    revalidatePath("/tasks");
+export const deleteTask = async (prevState, formData) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+     const id = await formData.get("id");
+    try {
+        await prisma.task.delete({
+            where: {
+                id: id
+            }
+        })
+        revalidatePath("/tasks");
+        const message = "Task deleted successfully.";
+        console.log(message);
+        return {message: message}
+    } catch (error) {
+        console.log(error);
+       return {message: "Error"} 
+    }
 }
 
 export const updateTask = async (FormData) => {

@@ -33,7 +33,7 @@ const TaskForm = () => {
       return
     }
     if(state.message) {
-      toast.success("Task added");
+      toast.success("Task added.");
       return;
     }
   }, [state])
